@@ -1,0 +1,9 @@
+// SUCCESS CODE
+const SUCCESS_CODE = "000000";
+// SUCCESS DESCRIPTION
+const SUCCESS_DESC = "success";
+
+export {
+    SUCCESS_CODE,
+    SUCCESS_DESC
+}

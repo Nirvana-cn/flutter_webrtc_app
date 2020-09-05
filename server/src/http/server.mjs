@@ -1,11 +1,12 @@
 import Koa from "koa";
 import {HTTP_PORT} from "../common/constant.mjs";
+import handler from "./router.mjs";
 
 const app = new Koa();
 
 export function startHttpServer() {
     app.use(async ctx => {
-        ctx.body = 'Hello World';
+        await handler(ctx);
     });
 
     app.listen(HTTP_PORT);

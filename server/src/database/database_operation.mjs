@@ -14,8 +14,21 @@ function executeMethodAll(sql) {
     })
 }
 
+function executeMethodGet(sql) {
+    console.log("Execute SQL: " + sql);
+    return new Promise((resolve, reject) => {
+        db.get(sql, function (err, row) {
+            resolve(row);
+        })
+    })
+}
+
 async function queryOnline() {
     return await executeMethodAll(`select * from ${TABLE_NAME} where isOnline = 1`);
+}
+
+async function queryUserById(userId) {
+    return await executeMethodGet(`select * from ${TABLE_NAME} where userId = "${userId}"`);
 }
 
 async function query(userId) {
@@ -51,5 +64,6 @@ async function update(host) {
 }
 
 export default {
-    queryOnline
+    queryOnline,
+    queryUserById
 }
