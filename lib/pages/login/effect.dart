@@ -2,7 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutterwebrtcapp/base/network/client/client.dart';
 import 'package:flutterwebrtcapp/base/network/dio/dio_builder.dart';
-import 'package:flutterwebrtcapp/model/base_model.dart';
+import 'package:flutterwebrtcapp/model/bool_result.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -26,9 +26,9 @@ void _onLogin(Action action, Context<LoginState> ctx) async {
     ctx.dispatch(LoginActionCreator.onShowSnackBar(ShowSnackBarModel(action.payload, EMPTY_USER)));
   } else {
     Client client = Client(dio);
-    BaseModel baseModel = await client.login(ctx.state.controller.text);
+    BoolResult boolResult = await client.login(ctx.state.controller.text);
 
-    if (baseModel.data.result) {
+    if (boolResult.result) {
       /// 登录成功
       ctx.dispatch(LoginActionCreator.onShowSnackBar(ShowSnackBarModel(action.payload, LOGIN_SUCCESS)));
     } else {

@@ -1,4 +1,4 @@
-import 'package:flutterwebrtcapp/model/base_model.dart';
+import 'package:flutterwebrtcapp/model/bool_result.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -10,6 +10,6 @@ abstract class Client {
 
   /// 登录验证
   @GET("/v1/login")
-  Future<BaseModel> login(
+  Future<BoolResult> login(
       @Query("userId") String userId);
 }

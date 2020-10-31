@@ -17,7 +17,7 @@ class _Client implements Client {
   String baseUrl;
 
   @override
-  Future<BaseModel> login(userId) async {
+  Future<BoolResult> login(userId) async {
     ArgumentError.checkNotNull(userId, 'userId');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'userId': userId};
@@ -30,7 +30,7 @@ class _Client implements Client {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    final value = BaseModel.fromJson(_result.data);
+    final value = BoolResult.fromJson(_result.data);
     return value;
   }
 }
