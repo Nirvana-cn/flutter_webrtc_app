@@ -13,5 +13,5 @@ export default async function (ctx) {
     } else {
         wrapperModel = new WrapperModel(SUCCESS_CODE, SUCCESS_DESC, new BooleanModel(false));
     }
-    ctx.body = JSON.stringify(wrapperModel);
+    ctx.body = wrapperModel;
 }
