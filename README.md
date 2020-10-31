@@ -15,5 +15,5 @@ A new Flutter WebRTC application.
 - koa
 - sqlite
 
-Todo:
-- 封装网络库
+# build命令
+flutter pub run build_runner build
