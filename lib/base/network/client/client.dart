@@ -8,7 +8,7 @@ part 'client.g.dart';
 abstract class Client {
   factory Client(Dio dio) = _Client;
 
-  /// 获取行程信息
+  /// 登录验证
   @GET("/v1/login")
   Future<BaseModel> login(
       @Query("userId") String userId);
