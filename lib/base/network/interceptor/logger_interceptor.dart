@@ -6,8 +6,7 @@ class LoggerInterceptor extends Interceptor{
 
   @override
   Future onRequest(RequestOptions options) {
-    logger.d('${options.method} => ${options.baseUrl+options.path}');
-    logger.d(options.queryParameters);
+    logger.d('${options.method} => ${options.uri}');
     logger.d(options.data);
     return super.onRequest(options);
   }
